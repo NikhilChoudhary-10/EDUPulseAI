@@ -20,30 +20,29 @@ EduPulse AI streamlines the study process by generating smart notes, flashcards,
 * **Frontend:** HTML5, CSS3, JavaScript (DOM Manipulation)
 * **Backend:** Node.js, Express.js
 * **AI Integration:** Google Gemini AI API
-* **Version Control:** Git & GitHub *(Learned how to securely configure `.gitignore` to protect environment variables!)*
 
 ---
 
-## ⚙️ How I Set Up and Run This Locally
+## ⚙️ How To Set Up and Run This Locally
 
 ### Prerequisites
-* [Node.js](https://nodejs.org) installed on my machine.
+* [Node.js](https://nodejs.org) install this.
 
 ### Local Development Steps
 
 1. **Install Dependencies:**
-   I open my terminal in VS Code and install the project packages:
+   open terminal in VS Code and install the project packages:
    ```bash
    npm install
    ```
 
 2. **Environment Configuration:**
-   * I created a local `.env` file in the root folder.
-   * I added my personal Gemini API key inside it like this:
+   * create a local `.env` file in the root folder.
+   * Add your Gemini API key inside it like this:
      ```env
      GEMINI_API_KEY=my_secret_gemini_api_key
      ```
-   *(Note: This file is intentionally hidden from this public repository using a `.gitignore` rule to keep my personal Google AI billing and keys 100% secure.)*
+     (You can use any API Key for this)
 
 3. **Running the Server:**
    boot up the Node backend engine by running:

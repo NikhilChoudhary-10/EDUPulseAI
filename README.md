@@ -1,6 +1,6 @@
-# 🚀 EduPulse AI — My First AI App!
+# 🚀 EduPulse AI — My First AI App
 
-Welcome to **EduPulse AI**! This is my very first project building a full-stack application integrated with artificial intelligence. I built this to explore how to build backend Node.js servers, manage local environment variables, and connect directly to the **Gemini AI API**.
+Welcome to **EduPulse AI** This is my very first project building a full-stack application integrated with artificial intelligence. I built this to explore how to build backend Node.js servers, manage local environment variables, and connect directly to the **Gemini AI API**.
 
 EduPulse AI streamlines the study process by generating smart notes, flashcards, and interactive quizzes instantly from text prompts, uploaded documents, or YouTube links.
 
@@ -55,4 +55,5 @@ EduPulse AI streamlines the study process by generating smart notes, flashcards,
 
 ---
 *Proudly built as a learning milestone. Feel free to check out the codebase!*
+
 

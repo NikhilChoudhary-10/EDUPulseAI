@@ -3,8 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
     <title>EduPulse AI</title>
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Sanitize generated HTML before inserting it into the page -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+
+    <!-- MathJax: supports $...$, $$...$$, \( ... \), and \[ ... \] -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          processEscapes: true
+        },
+        options: {
+          skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+        },
+        startup: {
+          typeset: false
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="app">
@@ -92,9 +116,9 @@
               <div class="out">
                 <b>AI Study Notes</b><button id="copyTopic">📋 Copy</button>
               </div>
-              <pre id="topicOut">
-Enter a topic and click Generate AI Notes.</pre
-              >
+              <div class="note-content" id="topicOut" aria-live="polite">
+                Enter a topic and click Generate AI Notes.
+              </div>
             </div>
           </div>
         </section>
@@ -119,59 +143,66 @@ Enter a topic and click Generate AI Notes.</pre
           </div>
           <div class="panel output">
             <div class="out">
-              <b>Material Notes</b><button id="copyFile">📋 Copy</button>
+              <b>Document Notes</b><button id="copyFile">📋 Copy</button>
             </div>
-            <pre id="fileOut">
-Your uploaded material summary will appear here.</pre
-            >
+            <div class="note-content" id="fileOut" aria-live="polite">
+              Upload a document to create notes.
+            </div>
           </div>
         </section>
         <section id="yt" class="section">
           <div class="heading">
             <small>VIDEO LEARNING</small>
-            <h2>Explain a YouTube video</h2>
-            <p>Paste a public educational YouTube URL.</p>
+            <h2>YouTube Explainer</h2>
+            <p>Paste a public YouTube URL to get a concise explanation.</p>
           </div>
           <div class="panel">
-            <input
-              id="ytUrl"
-              placeholder="https://www.youtube.com/watch?v=..."
-            /><select id="ytLang">
+            <label>YouTube URL</label>
+            <input id="ytUrl" placeholder="https://www.youtube.com/watch?v=..." />
+            <label>Language</label>
+            <select id="ytLang">
               <option>English</option>
-              <option>Hindi</option></select
-            ><button id="ytBtn" class="primary">▶ Explain This Video</button>
+              <option>Hindi</option>
+            </select>
+            <button id="ytBtn" class="primary full">▶ Explain Video</button>
           </div>
           <div class="panel output">
             <div class="out">
               <b>Video Explanation</b><button id="copyYT">📋 Copy</button>
             </div>
-            <pre id="ytOut">Paste a video link above.</pre>
+            <div class="note-content" id="ytOut" aria-live="polite">
+              Paste a YouTube URL and click Explain Video.
+            </div>
           </div>
         </section>
         <section id="flash" class="section">
           <div class="heading">
             <small>ACTIVE RECALL</small>
-            <h2>🃏 Flashcards</h2>
+            <h2>Flashcards</h2>
+            <p>Test your memory with quick question-and-answer cards.</p>
           </div>
           <div class="flashcard" id="fc">
             <span id="fcCount">1/5</span>
             <h2 id="fcText"></h2>
-            <p>Click to show answer</p>
+            <p>Click the card to reveal the answer</p>
           </div>
           <div class="center">
-            <button id="prev" class="secondary">← Previous</button
-            ><button id="next" class="primary">Next →</button>
+            <button id="prev" class="secondary">← Previous</button>
+            <button id="next" class="primary">Next →</button>
           </div>
         </section>
         <section id="quiz" class="section">
           <div class="heading">
-            <small>TEST YOURSELF</small>
-            <h2>🎯 Quiz</h2>
+            <small>KNOWLEDGE CHECK</small>
+            <h2>Quick Quiz</h2>
+            <p>Answer the questions and check your understanding.</p>
           </div>
-          <div class="panel" id="quizBox"></div>
-          <div class="quizbar">
-            <span id="progress"></span
-            ><button id="nextQ" class="primary">Next</button>
+          <div class="panel">
+            <div class="quizbar">
+              <span id="progress">Question 1 of 3</span>
+            </div>
+            <div id="quizBox"></div>
+            <button id="nextQ" class="primary full">Next Question</button>
           </div>
         </section>
       </main>
